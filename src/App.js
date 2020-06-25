@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import FilterBy from "./component/Flight/FilterBy/FilterBy";
+import ShortBy from "./component/Flight/ShortBy/ShortBy";
+import MainPage from "./component/Flight/MainPage/MainPage";
+import SearchDetails from "./component/Flight/SearchDetails/SearchDetails";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/filter" component={FilterBy} />
+        <Route exact path="/short" component={ShortBy} />
+        <Route exact path="/search" component={SearchDetails} />
+        <Route exact path="/" component={MainPage} />
+      </Switch>
+    </Router>
   );
 }
 
